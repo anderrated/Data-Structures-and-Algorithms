@@ -6,7 +6,7 @@ int partition(int arr[], int start, int end);
 int main(){
     int arr[] = {13, 22, 57, 64, 99, 48, 57, 70};
     quicksort(arr, 0, 7);
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i <= 7; i++) {
         printf("%d ", arr[i]);
     }
 }
@@ -20,9 +20,10 @@ void quicksort(int arr[], int start, int end) {
 }
 
 int partition(int arr[], int start, int end) {
-    int pivot = arr[end];
-    int pIndex = start;
+    int pivot = arr[end]; // element
+    int pIndex = start; // index
     for (int i = start; i < end; i++) {
+        // if element is greater than pivot, ignore
         if (arr[i] <= pivot) {
             int temp = arr[i];
             arr[i] = arr[pIndex];
