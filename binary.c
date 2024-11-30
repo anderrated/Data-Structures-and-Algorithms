@@ -27,10 +27,17 @@ int binary_search(int code_list[], int size, int target) {
 }
 
 int main(){
-    int code_list[] = {12, 11, 13, 5, 6, 14, 20};
-    int size = sizeof(code_list) / sizeof(code_list[0]);
+    int size;
+    printf("Size of the array: ");
+    scanf("%d", &size);
+
+    int code_list[size];
+    for (int i = 0; i < size; i++) {
+        printf("Enter number: ");
+        scanf("%d", &code_list[i]);
+    }
+
     int target;
-    
     insertion_sort(code_list, size);
 
     printf("Sorted array: ");
@@ -39,13 +46,14 @@ int main(){
     }
     
     // Binary search example
-    printf ("\nEnter target value: ");
-    scanf ("%d", &target);
-    int result = binary_search(code_list, size, target);
-    if (result != -1)
-        printf("\n%d found at index %d\n", target, result);
-    else
-        printf("\n%d not found\n", target);
-
+    while(1){
+        printf("\nEnter target value: ");
+        scanf("%d", &target);
+        int result = binary_search(code_list, size, target);
+        if (result != -1)
+            printf("\n%d found at index %d\n", target, result);
+        else
+            printf("\n%d not found\n", target);
+    }
     return 0;
 }
