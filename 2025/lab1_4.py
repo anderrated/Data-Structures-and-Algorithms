@@ -1,21 +1,32 @@
-def next_palindrome(number):
-    number_str = str(number)
-    digit_count = len(number_str)
-    
-    # Split into left and right
-    left_half = number_str[:digit_count // 2]  
-    right_half = number_str[digit_count // 2:]  
-    leftmost_digit = int(left_half[0])
-    rightmost_digit = int(right_half[-1])
- 
+def extract_digits(n: int) -> list[int]:
+    return list(map(int, str(n)))
 
-    while rightmost_digit != leftmost_digit:
-        number += 1 # increment number until the rightmost digit is equal to the leftmost digit
-        # Update the rightmost digit to the new rightmost digit
-        rightmost_digit = int(str(number)[-1])
-        # Update the leftmost digit to the new leftmost digit
-        leftmost_digit = int(str(number)[0])
-    return number
-    
-print(next_palindrome(1832)) 
+def make_int(digits: list[int]) -> int:
+    return int("".join(map(str, digits)))
 
+def next_palindrome(n: int) -> int:
+    n += 1
+    digits = extract_digits(n)
+
+    i = 0
+    j = len(digits) - 1
+    while i < j:
+        if digits[j] > digits[i]:
+            digits[j - 1] += 1
+
+        digits[j] = digits[i]
+        i += 1
+        j -= 1
+
+    return make_int(digits)
+
+test_count = int(input())
+inputs = []
+for _ in range(test_count):
+    inputs.append(int(input()))
+
+for n in inputs:
+    print(next_palindrome(n))
+
+# for n in [0, 18, 934, 5, 757, 1234, 1421, 1420, 1992, 19900, 18999]:
+#     print(n, next_palindrome(n))

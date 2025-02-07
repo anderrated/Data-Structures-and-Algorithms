@@ -19,4 +19,4 @@ def next_palindrome(number):
         number += 1
 
 # Test the function
-print(next_palindrome(1832))  # Output: 1881
+print(next_palindrome(18))  # Output: 1881
