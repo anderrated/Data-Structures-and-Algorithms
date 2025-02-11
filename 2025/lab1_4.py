@@ -1,6 +1,8 @@
+# extract list of digits out of an integer
 def extract_digits(n: int) -> list[int]:
     return list(map(int, str(n)))
 
+# concat list of digits back to an integer
 def make_int(digits: list[int]) -> int:
     return int("".join(map(str, digits)))
 
@@ -20,13 +22,13 @@ def next_palindrome(n: int) -> int:
 
     return make_int(digits)
 
-test_count = int(input())
-inputs = []
+test_count = int(input("Enter number of test cases: "))
+print("Enter test cases: ")
+
+test_list = []
 for _ in range(test_count):
-    inputs.append(int(input()))
+    test_list.append(int(input()))
 
-for n in inputs:
+print()
+for n in test_list:
     print(next_palindrome(n))
-
-# for n in [0, 18, 934, 5, 757, 1234, 1421, 1420, 1992, 19900, 18999]:
-#     print(n, next_palindrome(n))
