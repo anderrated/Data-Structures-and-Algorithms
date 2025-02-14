@@ -1,9 +1,9 @@
 import os
 
-# get directory of this script
+# get directory lab1_final.py
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# output and data folder in script directory
+# output and data folder in lab1_final directory
 output_dir = os.path.join(script_dir, "output")
 data_dir = os.path.join(script_dir, "data")
 
@@ -50,13 +50,9 @@ print("Enter test cases: ")
 
 small_test_list = [int(input()) for _ in range(test_count)]
 
-# read full input from full input file and skip the first line
-with open(full_input_path, "r") as file:
-    full_test_list = [int(line.strip()) for i, line in enumerate(file) if i > 0]  # skip first line
-
 # results
 small_results = [next_palindrome(n) for n in small_test_list]
-full_results = [next_palindrome(n) for n in full_test_list]
+full_results = [next_palindrome(n) for n in range(100001)]
 
 # write results to small_output
 with open(small_output_path, "w") as small_file:
