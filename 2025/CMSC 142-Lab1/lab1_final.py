@@ -8,8 +8,8 @@ output_dir = os.path.join(script_dir, "output")
 os.makedirs(output_dir, exist_ok=True)
 
 # file paths
-small_output_path = os.path.join(output_dir, "small_output.txt")
-full_output_path = os.path.join(output_dir, "full_output.txt")
+small_output_path = os.path.join(output_dir, "small_output")
+full_output_path = os.path.join(output_dir, "full_output")
 
 # extract list of digits out of an integer
 def extract_digits(n: int) -> list[int]:
@@ -42,9 +42,9 @@ test_list = []
 for _ in range(test_count):
     test_list.append(int(input()))
 
-print()
-for n in test_list:
-    print(next_palindrome(n))
+# print()
+# for n in test_list:
+#     print(next_palindrome(n))
 
 # compute results
 results = [(n, next_palindrome(n)) for n in test_list]
