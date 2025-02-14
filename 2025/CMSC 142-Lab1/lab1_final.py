@@ -50,7 +50,7 @@ print("Enter test cases: ")
 
 small_test_list = [int(input()) for _ in range(test_count)]
 
-# read full input from file and skip the first line
+# read full input from full input file and skip the first line
 with open(full_input_path, "r") as file:
     full_test_list = [int(line.strip()) for i, line in enumerate(file) if i > 0]  # skip first line
 
