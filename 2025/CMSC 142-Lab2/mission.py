@@ -19,7 +19,7 @@ def pop_missions(missions: list[Mission]) -> list[Mission]:
     res = []
 
     '''
-    Grouping missions by day_of_arrival ->
+    grouping missions by day_of_arrival:
     as long as there are missions in the missions list
     and the day_of_arrival of the last mission in the
     list is equal to the day_of_arrival of the first mission,
